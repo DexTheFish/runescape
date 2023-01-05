@@ -3,7 +3,7 @@
 // each raid awards points. 8,676 points make a 1% chance at obtaining a unique.
 
 // the uniques are weighted differently.
-const { roll, purpleTable, raid } = require("./helper");
+const { roll, purpleTable, raid, raids, sample } = require("./helper");
 
 const purple = () => {
   let roll = Math.floor(Math.random() * 69);

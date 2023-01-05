@@ -1,17 +1,5 @@
 // some helper functions to run calculations
 
-/** select a reward from a loot table */
-function roll(table) {
-  let rewardTypes = Object.keys(table);
-  let i = 0;
-  let r = Math.random();
-  while (r > table[rewardTypes[i]]) {
-    r -= table[rewardTypes[i]];
-    i++;
-  }
-  return rewardTypes[i];
-}
-
 const purpleTable = {
   dex: 20 / 69,
   arcane: 20 / 69,
@@ -27,6 +15,17 @@ const purpleTable = {
   bow: 2 / 69,
 };
 
+/** select a reward from a loot table */
+function roll(table) {
+  let rewardTypes = Object.keys(table);
+  let i = 0;
+  let r = Math.random();
+  while (r > table[rewardTypes[i]]) {
+    r -= table[rewardTypes[i]];
+    i++;
+  }
+  return rewardTypes[i];
+}
 /** simulate loot from a raid */
 function raid(points) {
   const purpleChance = points / 876000;
@@ -45,19 +44,13 @@ function raids(averagePoints, n) {
   }
   return result;
 }
-// tests
-const table1 = {
-  coins: 0.5,
-  sword: 0.1,
-  shield: 0.1,
-  bow: 0.1,
-  food: 0.2,
-};
-const table2 = {
-  coins: 0.3,
-};
-console.log(raids(31000, 445));
+/** simulate loot from n raids for m players */
+function sample(averagePoints, n, m) {
+  let result = [];
+  for (let i = 0; i < m; i++) {
+    result.push(raids(averagePoints, n));
+  }
+  return result;
+}
 
-//
-
-module.exports = { roll, purpleTable, raid };
+module.exports = { roll, purpleTable, raid, raids, sample };
