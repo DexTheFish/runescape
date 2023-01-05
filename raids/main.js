@@ -66,10 +66,33 @@ const simulateRaids = (pointsAverage, n) => {
 const simulateRaidsFromData = () => {
   let average = document.getElementById("average").value;
   let count = document.getElementById("count").value;
-  document.getElementById("purples").innerHTML = simulateRaids(
+  document.getElementById("purples").innerHTML += simulateRaids(
     average,
     count
   ).join(", ");
 };
 
+const increaseRaidCounter = () => {
+  let counter = document.getElementById("raidCounter");
+  let count = counter.innerHTML;
+  counter.innerHTML = Number(count) + 1 || 1;
+};
+
+const resetRaidCounter = () => {
+  document.getElementById("raidCounter").innerHTML = "";
+  document.getElementById("purples").innerHTML = "";
+};
+
+count = 0;
+for (let i = 0; i < 10000; i++) {
+  if (simulateRaids(29000, 400).includes("Dexterous prayer scroll")) {
+    count++;
+  }
+}
+
+console.log(
+  "out of a 10,000 player trial, each completing 400 raids, how many got at least one Dex scroll? - ",
+  count
+);
+console.log(`that is ${(100 * count) / 10000}% of players`);
 // console.log(simulateRaids(31000, 100));

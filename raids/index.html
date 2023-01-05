@@ -13,8 +13,14 @@
       <input type="number" id="average" name="average" /><br /><br />
       <label for="count">Number of completions: </label>
       <input type="number" id="count" name="count" /><br /><br />
-      <input type="button" value="Go!" onclick="simulateRaidsFromData()" />
+      <input
+        type="button"
+        value="Go!"
+        onclick="(() => {increaseRaidCounter(); simulateRaidsFromData()})()"
+      />
     </form>
+    <button id="reset" type="button" onclick="resetRaidCounter()">Reset</button>
+    <p id="raidCounter"></p>
     <div id="purples">
       <ul id="purples-list"></ul>
     </div>
