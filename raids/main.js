@@ -3,9 +3,9 @@
 // each raid awards points. 8,676 points make a 1% chance at obtaining a unique.
 
 // the uniques are weighted differently.
-const { roll, purpleTable, raid, raids, sample } = require("./helper");
+// const { roll, purpleTable, raid, raids, sample } = require("./helper");
 
-const purple = () => {
+function purple() {
   let roll = Math.floor(Math.random() * 69);
   if (0 <= roll && roll < 20) {
     return "Dexterous prayer scroll";
@@ -43,7 +43,7 @@ const purple = () => {
   if (67 <= roll && roll < 69) {
     return "Twisted bow";
   }
-};
+}
 
 const raidLoot = (points) => {
   const uniqueChance = points / 867600;
