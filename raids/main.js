@@ -3,6 +3,7 @@
 // each raid awards points. 8,676 points make a 1% chance at obtaining a unique.
 
 // the uniques are weighted differently.
+const { roll, purpleTable, raid } = require("./helper");
 
 const purple = () => {
   let roll = Math.floor(Math.random() * 69);
@@ -84,15 +85,15 @@ const resetRaidCounter = () => {
 };
 
 count = 0;
-for (let i = 0; i < 10000; i++) {
-  if (simulateRaids(29000, 400).includes("Dexterous prayer scroll")) {
+for (let i = 0; i < 40000; i++) {
+  if (simulateRaids(29000, 445).includes("Dexterous prayer scroll")) {
     count++;
   }
 }
 
 console.log(
-  "out of a 10,000 player trial, each completing 400 raids, how many got at least one Dex scroll? - ",
+  "out of a 40,000 player trial, each completing 445 raids, how many got at least one Dex scroll? - ",
   count
 );
-console.log(`that is ${(100 * count) / 10000}% of players`);
+console.log(`that is ${(100 * count) / 40000}% of players`);
 // console.log(simulateRaids(31000, 100));
