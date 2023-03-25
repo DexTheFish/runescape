@@ -1,3 +1,11 @@
+// this simulator is used to calculate the droprate of the Jewel of the Sun (Yellow Gem) empirically. 
+
+// by simulating a large number of players completing the Tombs of Amascut until the gem is acquired, we get a good estimate for the droprate.
+
+// the average killcount needed to acquire the gem is 120.
+
+
+
 
 // roll for a gem
 function rollForGem() {
