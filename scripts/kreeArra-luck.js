@@ -1,5 +1,5 @@
-let numberOfPlayers = 1000000
-let killCount = 1160;
+let numberOfPlayers = 1
+let killCount = 1600;
 let arr = [];
 for (let i = 0; i < numberOfPlayers; i++) {
   let drops = [];
